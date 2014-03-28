@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GalleryJqueryFileUpload</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="span8"><%= link_to "Home", root_path %></div>
+  </div>
+  <div class="row">
+    <div class="span8"><%= yield %></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<div class="row">
+  <h1>Gallery</h1>
+
+  <input type="hidden" id="galleryID" value="<%= @gallery.id %>">
+
+  <p>
+    <b>Name: </b>
+    <%= @gallery.name %>
+  </p>
+
+  <p>
+    <b>Description: </b>
+    <%= @gallery.description %>
+  </p>
+
+<h2>Pictures</h2>
+</div>
+
+<div class="row">
+  <ul class="thumbnails files">
+<% unless @pictures.empty? %>
+  <% @pictures.each do |pic| %>
+    <li class="span3" id="picture_<%= pic.id %>">
+    <div class="thumbnail">
+      <%= image_tag pic.image.url %>
+      <div class="caption">
+        <p style="text-align: center;">
+        <%= link_to "Edit", picture_path(pic) %>
+
+        <%= 
+          link_to "Delete", pic, 
+            :data => { :confirm => "Are you sure?" }, 
+            :method => :delete 
+          %>
+
+        </p>
+      </div>
+    </div>
+    </li>
+  <% end %>
+<% end %>
+</ul>
+</div>
+
+
+<div class="row">
+  <div class="form-actions">
+    <%= link_to 'Back', galleries_path, :class => 'btn btn-mini'  %>
+    <%= link_to 'Edit', edit_gallery_path(@gallery), :class => 'btn btn-mini' %>
+    <%= link_to 'Delete', gallery_path(@gallery), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+  </div>
+</div>
