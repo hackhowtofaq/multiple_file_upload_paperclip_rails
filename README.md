@@ -6,7 +6,7 @@ http://www.railscook.com/recipes/multiple-files-upload-with-nested-resource-usin
 
 * Clone 
 
-    git clone https://github.com/hackhowtofaq/multiple_files_upload_with_nested_resource_rails.git
+    git clone https://github.com/hackhowtofaq/multiple_file_upload_paperclip_rails3.git 
 
 * Change folder
 
