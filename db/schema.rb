@@ -16,15 +16,19 @@ ActiveRecord::Schema.define(:version => 20140320121939) do
   create_table "galleries", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "cover"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "token"
   end
 
   create_table "pictures", :force => true do |t|
     t.string   "description"
+    t.string   "image"
     t.integer  "gallery_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "gallery_token"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

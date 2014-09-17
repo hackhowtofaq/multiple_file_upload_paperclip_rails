@@ -1,5 +1,7 @@
 <div class="row">
   <h1>Galleries</h1>
+  <%= link_to 'New', new_gallery_path, :class => 'btn btn-mini' %>
+  <p></p>
   <ul class="thumbnails files">
     <% @galleries.each do |gallery| %>
         <li class="span3" id="gallery_<%= gallery.id %>">
@@ -10,9 +12,9 @@
                 <%= gallery.name.truncate(14) %>
                 <%= link_to "Show", gallery_path(gallery) %>
                 <%= link_to "Edit", edit_gallery_path(gallery) %>
-                <%= link_to "Delete", gallery, 
-                  :data => { :confirm => "Are you sure?" }, 
-                  :method => :delete 
+                <%= link_to "Delete", gallery,
+                  :data => { :confirm => "Are you sure?" },
+                  :method => :delete
                 %>
               </p>
             </div>
@@ -21,5 +23,4 @@
     <% end %>
   </ul>
 
-  <%= link_to 'New', new_gallery_path, :class => 'btn btn-mini' %>
 </div>
