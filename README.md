@@ -1,4 +1,4 @@
-# Rails 3.2.17 + Paperclip + multiple file upload with nested resource 
+# Rails 4 + Paperclip + multiple file upload with nested resource 
 
 http://www.railscook.com/recipes/multiple-files-upload-with-nested-resource-using-paperclip-in-rails/
 
