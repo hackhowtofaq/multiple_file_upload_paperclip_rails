@@ -74,7 +74,7 @@ class PicturesController < ApplicationController
     @picture = @gallery.pictures.find(params[:id])
 
     respond_to do |format|
-      if @picture.update_attributes(params[:picture])
+      if @picture.update_attributes(picture_params)
         format.html { redirect_to gallery_path(@gallery), notice: 'Picture was successfully updated.' }
         format.json { head :no_content }
       else
@@ -107,5 +107,11 @@ class PicturesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  private
+
+  def picture_params
+    params.require(:picture).permit(:description, :gallery_id, :image)
   end
 end

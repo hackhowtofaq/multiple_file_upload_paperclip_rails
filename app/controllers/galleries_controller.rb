@@ -41,11 +41,11 @@ class GalleriesController < ApplicationController
   # POST /galleries
   # POST /galleries.json
   def create
-    @gallery = Gallery.new(params[:gallery])
+    @gallery = Gallery.new(gallery_params)
 
     respond_to do |format|
       if @gallery.save
-        
+
         if params[:images]
           # The magic is here ;)
           params[:images].each { |image|
@@ -68,7 +68,7 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
 
     respond_to do |format|
-      if @gallery.update_attributes(params[:gallery])
+      if @gallery.update_attributes(gallery_params)
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,5 +88,14 @@ class GalleriesController < ApplicationController
       format.html { redirect_to galleries_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def gallery_params
+    params.require(:gallery).permit(:description,
+                                    :name,
+                                    :pictures
+                                   )
   end
 end
