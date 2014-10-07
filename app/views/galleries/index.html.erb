@@ -6,7 +6,11 @@
     <% @galleries.each do |gallery| %>
         <li class="span4" id="gallery_<%= gallery.id %>">
           <div class="thumbnail">
+            <% if gallery.pictures.first %>
             <%= link_to image_tag(gallery.pictures.first.image.url), gallery_path(gallery) %>
+            <% else %>
+              N/A
+            <% end %>
             <div class="caption">
               <p style="text-align: center;">
                 <%= gallery.name.truncate(14) %>

@@ -69,6 +69,12 @@ class GalleriesController < ApplicationController
 
     respond_to do |format|
       if @gallery.update_attributes(gallery_params)
+        if params[:images]
+          # The magic is here ;)
+          params[:images].each { |image|
+            @gallery.pictures.create(image: image)
+          }
+        end
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
         format.json { head :no_content }
       else
